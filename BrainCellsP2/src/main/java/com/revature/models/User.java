@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import com.revature.services.UserService;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-
-
 }
+
+
+
