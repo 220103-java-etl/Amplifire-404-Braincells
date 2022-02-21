@@ -17,7 +17,7 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Customer updateCustomer(String firstName, String lastName, int age){
-        return customerRepository.updateCustomer(firstName, lastName, age);
+    public Customer updateCustomer(Customer customer){
+        return customerRepository.save(customer);
     }
 }

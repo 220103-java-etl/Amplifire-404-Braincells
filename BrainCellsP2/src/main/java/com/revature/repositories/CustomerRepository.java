@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer,String> {
 
-    Customer updateCustomer(String firstName, String lastName, int age);
 }

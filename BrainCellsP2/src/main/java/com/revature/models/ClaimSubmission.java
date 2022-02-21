@@ -26,8 +26,8 @@ public class ClaimSubmission {
     @Column(name = "claim_category")
     private String claimCategory;
 
-    @Column(name = "incident_date")
-    private Timestamp incidentDate;
+   @Column(name = "incident_date")
+   private Timestamp incidentDate;
 
     @Column(name = "country")
     private String country;

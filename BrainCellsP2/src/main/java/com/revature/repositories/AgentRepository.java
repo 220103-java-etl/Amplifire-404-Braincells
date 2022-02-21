@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AgentRepository extends JpaRepository<Agent,Integer> {
 
-    Agent getAgentByID(int id);
+    Agent getAgentByAgentId(int id);
 
 }
