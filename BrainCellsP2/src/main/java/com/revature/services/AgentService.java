@@ -22,7 +22,7 @@ public class AgentService {
     }
 
     public Agent createAgent(Agent a){
-        return null;
+        return agentRepository.save(a);
     }
 
     public Optional<Agent> getAgentById(int id){

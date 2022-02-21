@@ -20,7 +20,7 @@ public class Agent {
     @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "first_name")
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "agent_rating")

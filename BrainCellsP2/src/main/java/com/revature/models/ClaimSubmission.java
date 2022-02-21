@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name="claim_submission")
@@ -19,15 +20,14 @@ public class ClaimSubmission {
     private Integer claimId;
 
     @ManyToOne
-    @JoinColumn
-    @Column(name = "customer_id")
-    private Integer customerId;
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     @Column(name = "claim_category")
     private String claimCategory;
 
     @Column(name = "incident_date")
-    private Date incidentDate;
+    private Timestamp incidentDate;
 
     @Column(name = "country")
     private String country;
@@ -36,7 +36,6 @@ public class ClaimSubmission {
     private String state;
 
     @ManyToOne
-    @JoinColumn
-    @Column(name = "agent_id")
-    private Integer agentId;
+    @JoinColumn(name = "agent_id")
+    private Agent agent;
 }
