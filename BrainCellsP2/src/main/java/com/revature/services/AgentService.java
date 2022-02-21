@@ -2,7 +2,11 @@ package com.revature.services;
 
 
 import com.revature.models.Agent;
+
 import com.revature.models.User;
+
+import java.util.Optional;
+
 import com.revature.repositories.AgentRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,10 +27,14 @@ public class AgentService {
 
     public Agent createAgent(Agent a){
         return agentRepository.save(a);
+
     }
 
-    public Optional<Agent> getAgentById(int id){
-        return Optional.of(agentRepository.getById(id));
+
+
+    public Optional<Agent> getAgentByID(int id){
+        return Optional.ofNullable(agentRepository.getAgentByID(id));
+
     }
 }
 

@@ -28,12 +28,9 @@ public class AgentController {
     }
 
     @GetMapping(path="/{id}")
-    public Agent getAgent(@PathVariable("id") int id){
 
-        return agentService.getAgentById(id).orElse(null);
+    public Agent getAgentByID(@PathVariable("id") int id){
+
+        return agentService.getAgentByID(id).orElse(null);
     }
-
-
-
-
 }
