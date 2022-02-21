@@ -11,7 +11,7 @@ import java.util.Optional;
 public class UserService {
     private UserRepository userRepository;
     public UserService(UserRepository userRepository){
-        this.userRepository=userRepository;
+    this.userRepository=userRepository;
     }
 
 
@@ -35,7 +35,9 @@ public class UserService {
         }
     }
     public Optional<User> getById(int Id){
+
         return userRepository.findById(Id);
     }
 
 }
+

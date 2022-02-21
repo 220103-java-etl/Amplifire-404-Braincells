@@ -1,7 +1,5 @@
 package com.revature.models;
 
-import com.revature.services.UserService;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,14 +7,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table(name="customer")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class User {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "customer_id")
+    private Integer customerId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -24,13 +23,6 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "username")
-    private String userName;
-
-    @Column(name = "password")
-    private String password;
-
+    @Column(name = "customer_age")
+    private Integer customerAge;
 }
-
-
-
