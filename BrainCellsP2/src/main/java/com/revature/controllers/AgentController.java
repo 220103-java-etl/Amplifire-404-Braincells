@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import com.revature.models.Agent;
 import com.revature.models.User;
 import com.revature.services.AgentService;
 import com.revature.services.UserService;
