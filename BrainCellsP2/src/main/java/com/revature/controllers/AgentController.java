@@ -18,18 +18,18 @@ public class AgentController {
     }
 
     @GetMapping
-    public List<User> getAllAgents(){
+    public List<Agent> getAllAgents(){
         return agentService.getAllAgents();
 
     }
     @PostMapping
-    public User registerAgent(@RequestBody Agent a){
+    public Agent registerAgent(@RequestBody Agent a){
         return agentService.createAgent(a);
     }
     @GetMapping(path="/{id}")
-    public User getAgent(@PathVariable("id") int id){
+    public Agent getAgent(@PathVariable("id") int id){
 
-        return agentService.getById(id).orElse(null);
+        return agentService.getAgentById(id).orElse(null);
     }
 
 
