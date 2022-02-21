@@ -26,7 +26,9 @@ public class AgentController {
     public Agent registerAgent(@RequestBody Agent a){
         return agentService.createAgent(a);
     }
+
     @GetMapping(path="/{id}")
+
     public Agent getAgentByID(@PathVariable("id") int id){
 
         return agentService.getAgentByID(id).orElse(null);
