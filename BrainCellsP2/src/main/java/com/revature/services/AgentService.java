@@ -33,7 +33,7 @@ public class AgentService {
 
 
     public Optional<Agent> getAgentByID(int id){
-        return Optional.ofNullable(agentRepository.getAgentByID(id));
+        return Optional.ofNullable(agentRepository.getAgentByAgentId(id));
 
     }
 }
