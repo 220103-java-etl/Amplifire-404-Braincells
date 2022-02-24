@@ -7,24 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-
-<div class="field">
-    <span class="fullName"></span>
-    <input type="text" required>
-    <label>First Name</label>
-</div>
-
-<div class="field">
-    <span class="email"></span>
-    <input type="text" required>
-    <label>Email</label>
-</div>
-
-<div class="field">
-    <span class="pwd"></span>
-    <input type="password" required>
-    <label>Password</label>
-</div>
+<form action="RegisterPage" method="post">
+    Firstname:
+    <input id="Firstname" name="firstname" type="text" required>
+    <br>
+    <br>
+    Lastname:
+    <input id="Lastname" name="lastname" type="text" required>
+    <br>
+    <br>
+    Username:
+    <input id="Username" name="username" type="text" required>
+    <br>
+    <br>
+    Password:
+    <input id="Password" name="password" type="password" required>
+    <br>
+    <br>
+    Register!
+    <input id="Submit", value="Submit" type="submit">
+</form>
 
 </body>
 </html>
