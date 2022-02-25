@@ -8,23 +8,27 @@
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
           crossorigin="anonymous"/>
-    <!--
-    <link rel="stylesheet" href="Popup.css">
--->
+    
+    <link rel="stylesheet" href="LoginStyle.css">
+
     <title>Home</title>
 
 </head>
 <body>
 
 <div class="center">
-    <button id="login-popup" onclick="popup('loginbtn')">Login Here</button>
+    <h2>Login Here</h2>
+    <button id="login-popup" onclick="popup('loginbtn')">Login</button>
 
 </div>
-<div class="popup">
+<div class="popup" id="popup" > 
 
     <div class="form" id="loginbtn" style="display:none">
 
-        <h2>Log in</h2><button id="x" onclick="popup('loginbtn')">&times;</button>
+        <h2>Log in</h2>
+        <button id="x" onclick="popup('loginbtn')" >&times;</button>
+        
+
         <div class ="form-element">
             <label for="username">Username</label>
             <input type="text" id="username" placeholder="Enter Username">
@@ -39,15 +43,25 @@
     </div>
 </div>
 <br>
-<p>
+<div class="register" id ="register">
     Not a user yet? Register Here!<br>
     <button id="registerbtn" type="button" onclick="location.href='Register.html'">
         Register Here
     </button>
-</p>
+</div>
+
+<style>
+    body {
+        background-image: url(./revature-logo-600x219.png);
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+</style>
+
 <script src="./LoginJS.js"></script>
 <script>
-    document.getElementById("login-popup").style.color = "Blue";
+
+
     document.getElementById("loginbtn").style.color = "Green";
     document.getElementById("username").style.color = "Black";
     document.getElementById("password").style.color = "Black";
