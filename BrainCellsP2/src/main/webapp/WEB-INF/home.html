@@ -17,8 +17,17 @@
 <body>
 
 <div class="center">
-    <h2>Login Here</h2>
+    <h2> Welcome</h2>
+
+
     <button id="login-popup" onclick="popup('loginbtn')">Login</button>
+    <br>
+    <br>
+    Not a user yet? Register Here!<br>
+    
+    <button id="registerbtn" type="button" onclick="registerpop('Registerbtn')">
+        Register
+    </button>
 
 </div>
 <div class="popup" id="popup" > 
@@ -42,13 +51,35 @@
         </div>
     </div>
 </div>
-<br>
-<div class="register" id ="register">
-    Not a user yet? Register Here!<br>
-    <button id="registerbtn" type="button" onclick="location.href='Register.html'">
-        Register Here
-    </button>
+
+<div class="Regpopup" id="Regpopup" > 
+
+    <div class="form" id="Registerbtn" style="display:none">
+
+        <button id="x" onclick="popup('Registerbtn')" >&times;</button>
+        
+        <div class ="form-element">
+            <label for="Firstname">Firstname</label>
+            <input type="text" id="Firstname" placeholder="Enter Firstname">
+        </div>
+        <div class ="form-element">
+            <label for="Lastname">Lastname</label>
+            <input type="text" id="Lastname" placeholder="Enter Lastname">
+        </div>
+        <div class ="form-element">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter Username">
+        </div>
+        <div class="form-element">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter Password">
+        </div>
+        <div class="form-element">
+            <button id="reg" onclick="register('Registerbtn')">Register</button>
+        </div>
+    </div>
 </div>
+
 
 <style>
     body {
@@ -62,14 +93,8 @@
 <script>
 
 
-    document.getElementById("loginbtn").style.color = "Green";
-    document.getElementById("username").style.color = "Black";
-    document.getElementById("password").style.color = "Black";
-    document.getElementById("loginbtn").style.fontSide = "larger";
-    document.getElementById("loginbtn").style.fontFamily = "Times New Roman";
-    document.getElementById("registerbtn").style.color = "Red";
-    document.getElementById("registerbtn").style.fontSide = "larger";
-    document.getElementById("registerbtn").style.fontFamily = "Aerial";
+    document.getElementById("loginbtn").style.color = "rgb(72, 76, 86)";
+
 </script>
 </body>
 </html>
