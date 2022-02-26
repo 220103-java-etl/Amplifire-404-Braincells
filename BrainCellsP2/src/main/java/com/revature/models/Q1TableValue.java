@@ -20,8 +20,8 @@ public class Q1TableValue {
     @Column(name = "customer_id")
     private String customerId;
 
-    @Column(name = "customer_name")
-    private String customerName;
+    @Column(name = "state")
+    private String state;
 
     @Column(name = "customer_age")
     private Integer customerAge;

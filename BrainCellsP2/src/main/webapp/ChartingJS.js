@@ -1,4 +1,5 @@
 let value1=0
+let states=['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
 function gettingCharts(theChartId){
 let firstChart=document.getElementById('FirstChart').getContext('2d');
 let myChart= new Chart(firstChart,{
@@ -36,9 +37,10 @@ function getData(url,methods,Destid) {
             rJson = JSON.parse(r);
             let greaterThanvalue=document.getElementById('age')
             valueSelected=greaterThanvalue.value
-            console.log(valueSelected);
+            let stateValue=document.getElementById('state selection')
+           
             for(r in rJson){
-
+              if(stateValue.value=='UnitedStates'){  
             if(valueSelected<=rJson[r]['customerAge']){
             if(rJson[r]['approval']==true){
                 trueVals++
@@ -48,11 +50,24 @@ function getData(url,methods,Destid) {
                 
             }
                 }
-           
+            }else{ 
+              
+                if(valueSelected<=rJson[r]['customerAge']&&stateValue.value==rJson[r]['state']){
+                if(rJson[r]['approval']==true){
+                    trueVals++
+                    
+                }else{
+                    falseVals++
+                    
+                }
+                    }
+
+
+
+            }
             
             }
-            console.log(falseVals)
-            console.log(trueVals)
+            
             
             let div=document.getElementById('divForCanv')
             div.innerHTML=""
@@ -78,7 +93,7 @@ function getData(url,methods,Destid) {
         plugins: {
         title: {
         display: true,
-        text: `Application Acceptance Percentage for Age ${valueSelected} and up`
+        text: `Application Acceptance Percentage for Age ${valueSelected} and up, ${stateValue.value},with ${falseVals+trueVals} values returned`
             }}
         }
     });
@@ -88,5 +103,29 @@ function getData(url,methods,Destid) {
 
         }
     }
+    function getStates(Destid) {
 
+    
+
+    
+
+                let stateDropDown=document.getElementById(Destid)
+                
+                
+                for(var i = 0; i < states.length; i++){
+                    let stateValue=document.createElement('option')
+                    stateValue.setAttribute('value',states[i])
+                    stateValue.innerHTML=states[i]
+                    stateDropDown.append(stateValue)
+    
+              
+               
+                
+                }
+                
+                
+            }
+    
+            
+        
 
