@@ -1,4 +1,4 @@
-
+let value1=0
 function gettingCharts(theChartId){
 let firstChart=document.getElementById('FirstChart').getContext('2d');
 let myChart= new Chart(firstChart,{
@@ -34,8 +34,12 @@ function getData(url,methods,Destid) {
             let falseVals=0
 
             rJson = JSON.parse(r);
-            
+            let greaterThanvalue=document.getElementById('age')
+            valueSelected=greaterThanvalue.value
+            console.log(valueSelected);
             for(r in rJson){
+
+            if(valueSelected<=rJson[r]['customerAge']){
             if(rJson[r]['approval']==true){
                 trueVals++
                 
@@ -43,13 +47,20 @@ function getData(url,methods,Destid) {
                 falseVals++
                 
             }
-            
+                }
            
             
             }
             console.log(falseVals)
             console.log(trueVals)
+            
+            let div=document.getElementById('divForCanv')
+            div.innerHTML=""
+            let canvas=document.createElement('canvas')
+            canvas.setAttribute('id','SecondChart')
+            div.append(canvas);
             let SecondChart=document.getElementById('SecondChart').getContext('2d');
+            
             let myChart= new Chart(SecondChart,{
             type:'pie',
             data:{
@@ -67,10 +78,11 @@ function getData(url,methods,Destid) {
         plugins: {
         title: {
         display: true,
-        text: 'Application Acceptance Percentage for Age 50 and up'
+        text: `Application Acceptance Percentage for Age ${valueSelected} and up`
             }}
         }
     });
+
             
         }
 

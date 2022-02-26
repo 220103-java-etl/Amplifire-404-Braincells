@@ -11,13 +11,16 @@
     <button id="button1" type="button" onclick="gettingCharts('x')">
         Click to view Chart
     </button>
-   <canvas id="FirstChart"></canvas>
+   <canvas id="FirstChart"></canvas><br>
 
     <button id="button2" type="button" onclick="getData('analytics/Q1','GET','SecondChart')">
         Click to view Chart2
-    </button>
-    <canvas id="SecondChart"  width="800" height="450"></canvas>
-
+    </button><br>
+    <label for="age"> Enter the age here : </label><br>
+    <input type="number" name="selection" id="age"><br>
+    <div id="divForCanv">
+    
+    </div>
     <script src="./ChartingJS.js">
    </script>
 </body>
