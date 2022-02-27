@@ -46,3 +46,37 @@ function register(stuff) {
     registerpop(stuff);
     alert("Registration Successful!");
 }
+function addUser(stuff) {
+    
+    let fName = document.getElementById('Firstname').value;
+    let lName = document.getElementById('Lastname').value;
+    let uName = document.getElementById('username').value;
+    let pWord = document.getElementById('password').value;
+
+
+   
+    let newUser = {
+        firstName: fName,
+        lastName: lName,
+        userName:uName,
+        password:pWord
+    }
+    console.log(newUser);
+ 
+    let user = JSON.stringify(newUser);
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            
+            register(stuff);
+        }
+    }
+
+    xhr.open('POST', 'http://localhost:8080/Insurance/users', true); 
+
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.send(user); 
+}
