@@ -80,3 +80,37 @@ function addUser(stuff) {
 
     xhr.send(user); 
 }
+function LoginUser(test) {
+
+    let uName = document.getElementById('username1').value;
+    let pWord = document.getElementById('password1').value;
+   
+
+
+
+    let newUser = {
+        userName:uName,
+        password:pWord
+    }
+    console.log(newUser);
+
+    let user = JSON.stringify(newUser);
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let r = xhr.responseText;
+
+            rJson = JSON.parse(r);
+            console.log(rJson)
+            login(test);
+        }
+    }
+
+    xhr.open('POST', 'http://localhost:8080/Insurance/users/login', true);
+
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.send(user);
+}
