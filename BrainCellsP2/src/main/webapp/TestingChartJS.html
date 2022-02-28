@@ -8,13 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 </head>
 <body>
-    <button id="button1" type="button" onclick="gettingCharts('x')">
-        Click to view Chart
-    </button>
-   <canvas id="FirstChart"></canvas><br>
+
 
     <button id="button2" type="button" onclick="getData('analytics/Q1','GET','SecondChart')">
-        Click to view Chart2
+        Click to view chart for age greater than or equal to selected age
+    </button><br>
+    <button id="button2" type="button" onclick="getData2('analytics/Q1','GET','SecondChart')">
+        Click to view chart for age less than or equal to selected age
     </button><br>
     <label for="age"> Enter the age here : </label><br>
     <input type="number" name="selection" id="age"><br>
@@ -30,7 +30,7 @@
     
     </div>
     <div id="divForCanv2">
-        
+
     </div>
     <script src="./ChartingJS.js">
    </script>
