@@ -19,7 +19,7 @@ public class AnalyticsController {
 
     @GetMapping("/Q1")
     public List<Q1TableValue> getClaimOver50(){
-        
+        System.out.println(anylaticsTablesRepository.findBycustomerAgeGreaterThan(0).get(0));
         List<Q1TableValue> LS= anylaticsTablesRepository.findBycustomerAgeGreaterThan(0);
 
         return LS;
