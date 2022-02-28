@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <button id="button1" type="button" onclick="gettingCharts('x')">
+        Click to view Chart
+    </button>
+   <canvas id="FirstChart"></canvas><br>
+
+    <button id="button2" type="button" onclick="getData('analytics/Q1','GET','SecondChart')">
+        Click to view Chart2
+    </button><br>
+    <label for="age"> Enter the age here : </label><br>
+    <input type="number" name="selection" id="age"><br>
+
+    <label for="state selection">Choose a filter for the ages</label>
+    <button id="button3" type="button" onclick="getStates('state selection')">
+        Click to add filter criteria states
+    </button><br>
+    <select name="state selection" id="state selection">
+        <option value="UnitedStates">United States</option>
+    </select><br>
+    <div id="divForCanv">
+    
+    </div>
+    <div id="divForCanv2">
+        
+    </div>
+    <script src="./ChartingJS.js">
+   </script>
+</body>
+</html>

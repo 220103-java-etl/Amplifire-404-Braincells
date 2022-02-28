@@ -31,6 +31,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    public String getPassword() {
+        return password;
+    }
 }
 
 
