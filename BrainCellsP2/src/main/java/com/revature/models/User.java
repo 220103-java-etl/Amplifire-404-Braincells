@@ -1,6 +1,6 @@
 package com.revature.models;
 
-import com.revature.services.UserService;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
