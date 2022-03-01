@@ -105,7 +105,12 @@ function LoginUser(test) {
             rJson = JSON.parse(r);
             console.log(rJson)
             login(test);
+            //if user = null give error
+            // put redirect here?
+
+            // else = login successful -> redirect to charts
         }
+        
     }
 
     xhr.open('POST', 'http://localhost:8080/Insurance/users/login', true);
