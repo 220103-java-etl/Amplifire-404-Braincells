@@ -40,7 +40,7 @@ public class UserController {
 
     @PostMapping(path = "/login")
     public User loginUser(@RequestBody User u) {
-        
+
         if (userService.findByUsername(u.getUserName())!=null) {
             return userService.loginUser(u.getUserName(), u.getPassword());
 
