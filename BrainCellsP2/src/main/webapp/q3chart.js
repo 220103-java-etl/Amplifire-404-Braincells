@@ -43,6 +43,8 @@ function createChart(rJson){
 
     let div=document.getElementById('divForCanv')
     div.innerHTML=""
+    let div2=document.getElementById('divForCanv2')
+    div2.innerHTML=""
     let canvas=document.createElement('canvas')
     canvas.setAttribute('id','SecondChart')
     div.append(canvas);
