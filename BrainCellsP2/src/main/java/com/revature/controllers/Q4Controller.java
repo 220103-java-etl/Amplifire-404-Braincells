@@ -13,16 +13,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/analytics")
 public class Q4Controller {
-
     Q4Repository q4Repository;
     public Q4Controller(Q4Repository q4Repository){
-        this.q4Repository=q4Repository;
+        this.q4Repository = q4Repository;
     }
 
     @GetMapping("/Q4")
     public
     List<Q4TableView> getMostApprovedClaim(){
-        List<Q4TableView> MA = q4Repository.findAll();
+        System.out.println(q4Repository.findAll());
+        List<Q4TableView> MA = (List<Q4TableView>) q4Repository.findAll();
 
         return MA;
     }

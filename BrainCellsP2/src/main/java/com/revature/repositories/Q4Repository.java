@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-    public interface Q4Repository extends JpaRepository<Q4TableView,Integer> {
+    public interface Q4Repository extends CrudRepository<Q4TableView,Integer> {
 
 //        List<Q4TableView> findAllMostApprovedClaim(String claimReason);
 
