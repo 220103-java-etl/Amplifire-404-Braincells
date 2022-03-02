@@ -11,6 +11,6 @@ import java.util.List;
     interface Q3Repository extends CrudRepository<Q3TableView, Integer> {
 
 
-        List<Q3TableView> findByAgentRatingGreaterThan(int agentRating);
+        List<Q3TableView> findByAgentRatingGreaterThan(double agentRating);
     }
 
