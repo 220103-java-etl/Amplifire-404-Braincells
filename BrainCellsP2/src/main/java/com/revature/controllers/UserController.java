@@ -24,8 +24,13 @@ public class UserController {
 
     @PostMapping
     public User registerUser(@RequestBody User u) {
-        return userService.createUser(u);
+        if (userService.findByUsername(u.getUserName()) == null) {
+            return userService.createUser(u);
+        } else {
+            return null;
+        }
     }
+
 
     @GetMapping(path = "/{id}")
     public User getUser(@PathVariable("id") int id) {
@@ -35,10 +40,14 @@ public class UserController {
 
     @PostMapping(path = "/login")
     public User loginUser(@RequestBody User u) {
+        
+        if (userService.findByUsername(u.getUserName())!=null) {
+            return userService.loginUser(u.getUserName(), u.getPassword());
 
-        return userService.loginUser(u.getUserName(), u.getPassword());
+        } else {
+            return null;
+        }
+
 
     }
-
-
 }
