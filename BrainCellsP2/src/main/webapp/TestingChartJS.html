@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+
+
+    <button id="button2" type="button" onclick="getData('analytics/Q1','GET','SecondChart')">
+        Click to view chart for age greater than or equal to selected age
+    </button><br>
+    <button id="button2" type="button" onclick="getData2('analytics/Q1','GET','SecondChart')">
+        Click to view chart for age less than or equal to selected age
+    </button><br>
+    <label for="age"> Enter the age here : </label><br>
+    <input type="number" name="selection" id="age"><br>
+
+    <label for="state selection">Choose a filter for the ages</label>
+    <button id="button3" type="button" onclick="getStates('state selection')">
+        Click to add filter criteria states
+    </button><br>
+    <select name="state selection" id="state selection">
+        <option value="UnitedStates">United States</option>
+    </select><br><br>
+
+    <button id="AgentButton" type="button" onclick="getDataForq3('analytics/Q3','GET','AgentBar')">
+        Click to view chart for highest rated agents
+    </button><br><br>
+    <button id="ClaimButton" type="button" onclick="getDataForq4('analytics/Q4','GET','ClaimBar')">
+        Click to view chart for most common approval reason
+    </button><br><br>
+
+    <div id="divForCanv">
+    
+    </div>
+    <div id="divForCanv2">
+
+    </div>
+    <div id="divforCanv3">
+
+    </div>
+    <div id="divforCanv4">
+
+    </div>
+
+    <script src="./ChartingJS.js">
+   </script>
+    <script src="./q3chart.js">
+    </script>
+    <script src="./q4chart.js">
+    </script>
+</body>
+</html>
