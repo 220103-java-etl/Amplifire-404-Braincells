@@ -2,9 +2,7 @@ package com.revature.models;
 
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,7 +10,9 @@ import javax.persistence.*;
 @Table(name="users")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +33,9 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+    public String getUserName(){
+        return userName;
     }
 }
 
