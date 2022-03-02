@@ -14,8 +14,7 @@ import java.util.List;
 public class Q3Controller {
     Q3Repository q3Repository;
 
-    public
-    Q3Controller(Q3Repository q3Repository) {
+    public Q3Controller(Q3Repository q3Repository) {
         this.q3Repository = q3Repository;
     }
 
