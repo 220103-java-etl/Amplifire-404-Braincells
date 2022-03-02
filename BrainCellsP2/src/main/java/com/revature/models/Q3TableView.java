@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="q3_table")
+@Table(name="q3table")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,15 +16,16 @@ import javax.persistence.*;
 
 public class Q3TableView {
 
-    @Id
-    @Column(name = "agent_id")
-    private String agentId;
+//    @Id
+//    @Column(name = "agent_id")
+//    private String agentId;
 
+    @Id
     @Column(name = "state")
     private String state;
 
     @Column(name = "agent_rating")
-    private Integer agentRating;
+    private Double agentRating;
 
 
 }
