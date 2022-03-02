@@ -1,14 +1,14 @@
 let value1=0
 
 let states=['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
-function gettingCharts(theChartId,barHeight,barLabels){
+function gettingCharts(theChartId,barHeight,barLabels,xaxislabel){
 let firstChart=document.getElementById(theChartId).getContext('2d');
 let myChart= new Chart(firstChart,{
     type:'bar',
     data:{
         labels:barLabels,
         datasets:[{
-            label:'States',
+            label:xaxislabel,
             data:barHeight
 
     }]},
@@ -44,6 +44,21 @@ function getData(url,methods,Destid) {
             let barHeightArray=[]
             let allStateAccepatance= new Map;
             let allFromStateDenial= new Map;
+            let allAgeAccepatance= new Map;
+            let allAgeDenial= new Map;
+            if(stateValue.value!='UnitedStates'){
+                for(i in rJson){
+                  if(rJson[i]['state']==stateValue.value){
+                      allAgeAccepatance.set(rJson[i]['customerAge'],0)
+                      allAgeDenial.set(rJson[i]['customerAge'],0)
+                      
+                  }
+                }
+                
+            }
+
+
+
             for(i=0;i<states.length;i++){
                 allFromStateDenial.set(states[i],0)
                 allStateAccepatance.set(states[i],0)
@@ -76,9 +91,10 @@ function getData(url,methods,Destid) {
                  
                 if(rJson[r]['approval']==true){
                     trueVals++
-                    
+                    allAgeAccepatance.set(rJson[r]['customerAge'],allAgeAccepatance.get(rJson[r]['customerAge'])+1)
                 }else{
                     falseVals++
+                    allAgeDenial.set(rJson[r]['customerAge'],allAgeDenial.get(rJson[r]['customerAge'])+1)
                     
                 }
                     }
@@ -103,8 +119,12 @@ function getData(url,methods,Destid) {
             let canvas2=document.createElement('canvas')
             canvas2.setAttribute('id','BarChart')
             div2.append(canvas2);
-            gettingCharts('BarChart',barHeightArray,states);
-
+            masterAr=creatingBarsForChart(allAgeAccepatance,allAgeDenial);
+            if(stateValue.value=='UnitedStates'){
+            gettingCharts('BarChart',barHeightArray,states,'Approval Percentage per State');
+            }else{
+            gettingCharts('BarChart',masterAr[0],masterAr[1],'Approval Amount per Age Demographic');
+            }
             let div=document.getElementById('divForCanv')
             div.innerHTML=""
             let canvas=document.createElement('canvas')
@@ -207,6 +227,21 @@ function getData(url,methods,Destid) {
                     let barHeightArray=[]
                     let allStateAccepatance= new Map;
                     let allFromStateDenial= new Map;
+                    let allAgeAccepatance= new Map;
+                    let allAgeDenial= new Map;
+                    if(stateValue.value!='UnitedStates'){
+                        for(i in rJson){
+                          if(rJson[i]['state']==stateValue.value){
+                              allAgeAccepatance.set(rJson[i]['customerAge'],0)
+                              allAgeDenial.set(rJson[i]['customerAge'],0)
+                              
+                          }
+                        }
+                        
+                    }
+        
+        
+        
                     for(i=0;i<states.length;i++){
                         allFromStateDenial.set(states[i],0)
                         allStateAccepatance.set(states[i],0)
@@ -239,9 +274,10 @@ function getData(url,methods,Destid) {
                          
                         if(rJson[r]['approval']==true){
                             trueVals++
-                            
+                            allAgeAccepatance.set(rJson[r]['customerAge'],allAgeAccepatance.get(rJson[r]['customerAge'])+1)
                         }else{
                             falseVals++
+                            allAgeDenial.set(rJson[r]['customerAge'],allAgeDenial.get(rJson[r]['customerAge'])+1)
                             
                         }
                             }
@@ -266,8 +302,12 @@ function getData(url,methods,Destid) {
                     let canvas2=document.createElement('canvas')
                     canvas2.setAttribute('id','BarChart')
                     div2.append(canvas2);
-                    gettingCharts('BarChart',barHeightArray,states);
-        
+                    masterAr=creatingBarsForChart(allAgeAccepatance,allAgeDenial);
+                    if(stateValue.value=='UnitedStates'){
+                    gettingCharts('BarChart',barHeightArray,states,'Approval Percentage per State');
+                    }else{
+                    gettingCharts('BarChart',masterAr[0],masterAr[1],'Approval Amount per Age Demographic');
+                    }
                     let div=document.getElementById('divForCanv')
                     div.innerHTML=""
                     let canvas=document.createElement('canvas')
@@ -292,7 +332,7 @@ function getData(url,methods,Destid) {
                 plugins: {
                 title: {
                 display: true,
-                text: `Application Acceptance Percentage for age ${valueSelected} and lower, ${stateValue.value},with ${falseVals+trueVals} values returned`
+                text: `Application Acceptance Percentage for age ${valueSelected} and up, ${stateValue.value},with ${falseVals+trueVals} values returned`
                     }}
                 }
             });
@@ -325,23 +365,51 @@ function getData(url,methods,Destid) {
                         
                     }
             
-                    
-                function deleteDuplicits(array){
-                    m=0
-                    x=1
-                    for(i=1;i<array.length;i++){
-                        
-                        if(array[i-1]==array[i]){
-                        array.splice(i-1,i)
-                        console.log(array);
-                        }
-                       
-                    }
+ function creatingBarsForChart(Map1,Map2){
+     barHeightAr=[0,0,0,0]
+     barLabelAr=['0-25','26-50','51-75','76+']
+     masterAr=[]
+     
+     for(i in Array.from(Map1.keys())){
+        keyMap1=Array.from(Map1.keys())[i]
+        
 
+         if(Array.from(Map1.keys())[i]<=25){
+            if((Map1.get(keyMap1)+Map2.get(keyMap1))!=0){
+                
 
+                barHeightAr[0]+=Map1.get(keyMap1)
+                 }else{
+                barHeightAr[0]+=0;     
+                 }
 
-                    console.log(array)
-                    return array;
-                }
+         }
+         else if(Array.from(Map1.keys())[i]>25 && Array.from(Map1.keys())[i]<=50 ){
+            
+            
+                barHeightAr[1]+=Map1.get(keyMap1)
+               
+
+         }else if(Array.from(Map1.keys())[i]>50 && Array.from(Map1.keys())[i]<=75){
+        
+            
+                barHeightAr[2]+=Map1.get(keyMap1)
+                
+            
+         }else{
+           
+            
+                barHeightAr[3]+=Map1.get(keyMap1)
+              
+                 
+             
+         }
+         
+     }
+     
+     masterAr.push(barHeightAr)
+     masterAr.push(barLabelAr)
+     return masterAr            
+    }               
         
         
