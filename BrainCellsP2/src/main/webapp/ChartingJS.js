@@ -21,7 +21,10 @@ let myChart= new Chart(firstChart,{
             data:barHeight
 
     }]},
-    options:{},
+    options:{
+        maintainAspectRatio: false,
+        responsive: false
+    },
 });
 }
 function getData(url,methods,Destid) {
@@ -127,6 +130,8 @@ function getData(url,methods,Destid) {
             div2.innerHTML=""
             let canvas2=document.createElement('canvas')
             canvas2.setAttribute('id','BarChart')
+            canvas2.setAttribute('width','800')
+            canvas2.setAttribute('height','400')
             div2.append(canvas2);
             masterAr=creatingBarsForChart(allAgeAccepatance,allAgeDenial);
             if(stateValue.value=='UnitedStates'){
@@ -138,6 +143,8 @@ function getData(url,methods,Destid) {
             div.innerHTML=""
             let canvas=document.createElement('canvas')
             canvas.setAttribute('id','SecondChart')
+            canvas.setAttribute('width','400')
+            canvas.setAttribute('height','400')
             div.append(canvas);
             let SecondChart=document.getElementById('SecondChart').getContext('2d');
             
@@ -155,6 +162,8 @@ function getData(url,methods,Destid) {
         }]
     },
     options:{
+        maintainAspectRatio: false,
+        responsive: false,
         plugins: {
         title: {
         display: true,
@@ -310,6 +319,8 @@ function getData(url,methods,Destid) {
                     div2.innerHTML=""
                     let canvas2=document.createElement('canvas')
                     canvas2.setAttribute('id','BarChart')
+                    canvas2.setAttribute('width','800')
+                    canvas2.setAttribute('height','400')
                     div2.append(canvas2);
                     masterAr=creatingBarsForChart(allAgeAccepatance,allAgeDenial);
                     if(stateValue.value=='UnitedStates'){
@@ -321,6 +332,8 @@ function getData(url,methods,Destid) {
                     div.innerHTML=""
                     let canvas=document.createElement('canvas')
                     canvas.setAttribute('id','SecondChart')
+                    canvas.setAttribute('width','400')
+                    canvas.setAttribute('height','400')
                     div.append(canvas);
                     let SecondChart=document.getElementById('SecondChart').getContext('2d');
                     
@@ -338,6 +351,8 @@ function getData(url,methods,Destid) {
                 }]
             },
             options:{
+                maintainAspectRatio: false,
+                responsive: false,
                 plugins: {
                 title: {
                 display: true,
