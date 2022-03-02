@@ -19,7 +19,7 @@ Presentation date: Friday, February 4, 2022
   - Styled web pages either with CSS or Bootstrap.
 
 
-## Tech Stck
+## Tech Stack
 - Spring Boot
 - Spring Data
 - Spring Framework
