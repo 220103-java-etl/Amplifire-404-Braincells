@@ -20,19 +20,19 @@ Presentation date: Friday, February 4, 2022
 
 
 ## Tech Stck
--Spring Boot
--Spring Data
--Spring Framework
--Spring MVC
--AWS RDS
--Data Visualization 
--Data Manipulation
--PostgreSQL
--JavaScript
--HTML
--CSS 
--Bootstrap 
--Lombok 
--REST
+- Spring Boot
+- Spring Data
+- Spring Framework
+- Spring MVC
+- AWS RDS
+- Data Visualization 
+- Data Manipulation
+- PostgreSQL
+- JavaScript
+- HTML
+- CSS 
+- Bootstrap 
+- Lombok 
+- REST
 
 
