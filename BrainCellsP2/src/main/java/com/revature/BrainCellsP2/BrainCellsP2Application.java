@@ -17,7 +17,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 public class BrainCellsP2Application {
 
-	public static void main(String[] args) {
+	public static void main (String[] args) {
+
 		SpringApplication.run(BrainCellsP2Application.class, args);
 	}
 

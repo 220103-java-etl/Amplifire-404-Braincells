@@ -4,13 +4,12 @@ import lombok.*;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name="q1_table")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 public class Q1TableValue {
 
     @Id

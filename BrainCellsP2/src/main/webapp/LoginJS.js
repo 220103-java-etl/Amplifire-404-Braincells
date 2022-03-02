@@ -69,7 +69,9 @@ function addUser(stuff) {
 
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            
+            let newUserResp=xhr.responseText;
+            let user = JSON.stringify(newUserResp);
+            console.log(user);
             register(stuff);
         }
     }
@@ -92,7 +94,7 @@ function LoginUser(test) {
         userName:uName,
         password:pWord
     }
-    console.log(newUser);
+   
 
     let user = JSON.stringify(newUser);
 
@@ -101,9 +103,9 @@ function LoginUser(test) {
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let r = xhr.responseText;
+            rJson=JSON.stringify(r);
 
-            rJson = JSON.parse(r);
-            console.log(rJson)
+            console.log(rJson);
             login(test);
             //if user = null give error
             // put redirect here?
