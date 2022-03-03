@@ -35,10 +35,6 @@ function registerpop(value) {
   fun++;
 }
 
-function register(stuff) {
-  registerpop(stuff);
-  alert("Registration Successful!");
-}
 function addUser(stuff) {
   let fName = document.getElementById("Firstname").value;
   let lName = document.getElementById("Lastname").value;
@@ -62,13 +58,15 @@ function addUser(stuff) {
       let newUserResp = xhr.responseText;
       let user = JSON.stringify(newUserResp);
       console.log(user);
-      register(stuff);
+      
 
-      if (stuff == ""){
+      if (user.length == 0){
       alert("Register Failed!");
       }
       else{
-      window.location.href = "./TestingChartJS.html";
+        
+        alert("Registration Successful!");
+        registerpop(stuff);
       }
     }
   };
