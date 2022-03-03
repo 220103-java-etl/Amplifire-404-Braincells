@@ -9,6 +9,7 @@ let myChart= new Chart(firstChart,{
         labels:barLabels,
         datasets:[{
             label:xaxislabel,
+            backgroundColor: ["#F26925", "#474C55","#474C55"],
             data:barHeight
 
     }]},
@@ -427,4 +428,24 @@ function getData(url,methods,Destid) {
      return masterAr            
     }               
         
-        
+let fun = 0;
+
+function peekaboo(formId){
+    if (fun %2 == 0){
+        document.getElementById(formId).style.display="inline-block";
+        document.getElementById("Q1btn").style.display="none";
+        /*
+        document.getElementById("register").style.display="none";
+        */
+    }
+        else{
+        document.getElementById(formId).style.display="none";
+        document.getElementById("Q1btn").style.display="inline-block";
+        /*
+        document.getElementById("register").style.display="inline-block";
+        */
+    }
+    
+        fun++;
+        console.log(fun);
+}
