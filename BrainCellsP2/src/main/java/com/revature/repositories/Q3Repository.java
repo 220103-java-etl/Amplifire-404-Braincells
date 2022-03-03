@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
     @Repository
-    public
-    interface Q3Repository extends CrudRepository<Q3TableView, Integer> {
+    public interface Q3Repository extends CrudRepository<Q3TableView, Integer> {
 
 
         List<Q3TableView> findByAgentRatingGreaterThan(double agentRating);

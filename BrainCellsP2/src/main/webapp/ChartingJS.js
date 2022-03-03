@@ -2,6 +2,14 @@ let value1=0
 
 let states=['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
 function gettingCharts(theChartId,barHeight,barLabels,xaxislabel){
+    colorArray=[]
+    for(i in barLabels){
+        if(i%2==0){
+        colorArray.push("#474C55")
+        }else{
+            colorArray.push("#F26925")
+        }
+    }
 let firstChart=document.getElementById(theChartId).getContext('2d');
 let myChart= new Chart(firstChart,{
     type:'bar',
@@ -9,7 +17,11 @@ let myChart= new Chart(firstChart,{
         labels:barLabels,
         datasets:[{
             label:xaxislabel,
+
             backgroundColor: ["#F26925", "#474C55","#474C55"],
+
+            backgroundColor:colorArray,
+
             data:barHeight
 
     }]},
@@ -120,6 +132,8 @@ function getData(url,methods,Destid) {
             
             let div2=document.getElementById('divForCanv2')
             div2.innerHTML=""
+            let div=document.getElementById('divForCanv')
+            div.innerHTML=""
             let canvas2=document.createElement('canvas')
             canvas2.setAttribute('id','BarChart')
             canvas2.setAttribute('width','800')
@@ -129,10 +143,9 @@ function getData(url,methods,Destid) {
             if(stateValue.value=='UnitedStates'){
             gettingCharts('BarChart',barHeightArray,states,'Approval Percentage per State');
             }else{
-            gettingCharts('BarChart',masterAr[0],masterAr[1],'Approval Amount per Age Demographic');
+            gettingCharts('BarChart',masterAr[0],masterAr[1],'Approval Percentage per Age Demographic');
             }
-            let div=document.getElementById('divForCanv')
-            div.innerHTML=""
+            
             let canvas=document.createElement('canvas')
             canvas.setAttribute('id','SecondChart')
             canvas.setAttribute('width','400')
@@ -318,7 +331,7 @@ function getData(url,methods,Destid) {
                     if(stateValue.value=='UnitedStates'){
                     gettingCharts('BarChart',barHeightArray,states,'Approval Percentage per State');
                     }else{
-                    gettingCharts('BarChart',masterAr[0],masterAr[1],'Approval Amount per Age Demographic');
+                    gettingCharts('BarChart',masterAr[0],masterAr[1],'Approval % per Age Demographic');
                     }
                     let div=document.getElementById('divForCanv')
                     div.innerHTML=""
@@ -383,6 +396,8 @@ function getData(url,methods,Destid) {
             
  function creatingBarsForChart(Map1,Map2){
      barHeightAr=[0,0,0,0]
+     barHeightArTot=[0,0,0,0]
+     barHeightforDat=[0,0,0,0]
      barLabelAr=['0-25','26-50','51-75','76+']
      masterAr=[]
      
@@ -395,26 +410,28 @@ function getData(url,methods,Destid) {
                 
 
                 barHeightAr[0]+=Map1.get(keyMap1)
+                barHeightArTot[0]+=Map1.get(keyMap1)+Map2.get(keyMap1)
                  }else{
-                barHeightAr[0]+=0;     
+                barHeightAr[0]+=0;  
+                barHeightArTot[0]+=Map1.get(keyMap1)+Map2.get(keyMap1)  
                  }
 
          }
          else if(Array.from(Map1.keys())[i]>25 && Array.from(Map1.keys())[i]<=50 ){
             
-            
+                barHeightArTot[1]+=Map1.get(keyMap1)+Map2.get(keyMap1)
                 barHeightAr[1]+=Map1.get(keyMap1)
                
 
          }else if(Array.from(Map1.keys())[i]>50 && Array.from(Map1.keys())[i]<=75){
         
-            
+             barHeightArTot[2]+=Map1.get(keyMap1)+Map2.get(keyMap1)
                 barHeightAr[2]+=Map1.get(keyMap1)
                 
             
          }else{
            
-            
+             barHeightArTot[3]+=Map1.get(keyMap1)+Map2.get(keyMap1)  
                 barHeightAr[3]+=Map1.get(keyMap1)
               
                  
@@ -422,8 +439,11 @@ function getData(url,methods,Destid) {
          }
          
      }
-     
-     masterAr.push(barHeightAr)
+     barHeightforDat[0]=(barHeightAr[0]/barHeightArTot[0])*100
+     barHeightforDat[1]=(barHeightAr[1]/barHeightArTot[1])*100
+     barHeightforDat[2]=(barHeightAr[2]/barHeightArTot[2])*100
+     barHeightforDat[3]=(barHeightAr[3]/barHeightArTot[3])*100
+     masterAr.push(barHeightforDat)
      masterAr.push(barLabelAr)
      return masterAr            
     }               

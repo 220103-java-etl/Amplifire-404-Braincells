@@ -6,21 +6,21 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="q4_table")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+@Table(name="q4table")
+@Data
 public class Q4TableView {
-    @Id
-    @Column(name= "claim_id")
-    private Integer claimId;
+//    @Id
+//    @Column(name= "claim_id")
+//    private Integer claimId;
 
+    @Id
     @Column(name= "state")
     private String state;
 
-    @Column(name= "reason")
+    @Column(name= "substring")
     private String reason;
+
+    @Column(name= "num_claims")
+    private Integer numClaims;
 }
 

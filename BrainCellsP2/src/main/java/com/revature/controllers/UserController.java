@@ -5,15 +5,18 @@ import com.revature.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
     private UserService userService;
+    private HttpSession session;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService,HttpSession session) {
         this.userService = userService;
+        this.session=session;
     }
 
     @GetMapping
@@ -42,7 +45,9 @@ public class UserController {
     public User loginUser(@RequestBody User u) {
 
         if (userService.findByUsername(u.getUserName())!=null) {
-            return userService.loginUser(u.getUserName(), u.getPassword());
+            User m =userService.loginUser(u.getUserName(), u.getPassword());
+            session.setAttribute("user",m);
+            return m;
 
         } else {
             return null;

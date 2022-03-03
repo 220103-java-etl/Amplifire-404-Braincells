@@ -9,7 +9,9 @@ import javax.persistence.*;
 @Table(name="q1_table")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@ToString
+@Getter
+@Setter
 public class Q1TableValue {
 
     @Id
