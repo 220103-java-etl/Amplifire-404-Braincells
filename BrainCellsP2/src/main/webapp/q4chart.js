@@ -24,12 +24,18 @@ function getDataForq4(url,methods,Destid){
                 barLabels.push(rJson[i]['state'])
                 barHeights.push(rJson[i]['numClaims'])
             }
-            div=document.getElementById('divForCanv')
+            let div=document.getElementById('divForCanv')
             div.innerHTML=""
+            let div2=document.getElementById('divForCanv2')
+            div2.innerHTML=""
             let canvas=document.createElement('canvas')
             canvas.setAttribute('id','BarChart')
             div.append(canvas);
             gettingCharts2('BarChart',barHeights,barLabels,'Most common reason for claim per state');
+        }
+        else{
+          
+
         }
     }
 }

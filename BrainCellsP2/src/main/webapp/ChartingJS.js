@@ -125,6 +125,8 @@ function getData(url,methods,Destid) {
             
             let div2=document.getElementById('divForCanv2')
             div2.innerHTML=""
+            let div=document.getElementById('divForCanv')
+            div.innerHTML=""
             let canvas2=document.createElement('canvas')
             canvas2.setAttribute('id','BarChart')
             div2.append(canvas2);
@@ -134,8 +136,7 @@ function getData(url,methods,Destid) {
             }else{
             gettingCharts('BarChart',masterAr[0],masterAr[1],'Approval Percentage per Age Demographic');
             }
-            let div=document.getElementById('divForCanv')
-            div.innerHTML=""
+            
             let canvas=document.createElement('canvas')
             canvas.setAttribute('id','SecondChart')
             div.append(canvas);

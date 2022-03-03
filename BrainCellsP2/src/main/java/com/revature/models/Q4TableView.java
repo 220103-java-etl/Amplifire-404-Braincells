@@ -7,11 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="q4table")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+@Data
 public class Q4TableView {
 //    @Id
 //    @Column(name= "claim_id")
