@@ -40,14 +40,14 @@
 
         <div class ="form-element">
             <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Enter Username">
+            <input type="text" id="username1" name="username1" placeholder="Enter Username" required>
         </div>
         <div class="form-element">
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter Password">
+            <input type="password" id="password1" name="password1" placeholder="Enter Password" required>
         </div>
         <div class="form-element">
-            <button id="signin" onclick="login('loginbtn')">Sign in</button>
+            <button id="signin" onclick="LoginUser('loginbtn')">Sign in</button>
         </div>
     </div>
 </div>
@@ -60,22 +60,22 @@
         
         <div class ="form-element">
             <label for="Firstname">Firstname</label>
-            <input type="text" id="Firstname" placeholder="Enter Firstname">
+            <input type="text" min="5" id="Firstname" placeholder="Enter Firstname" required>
         </div>
         <div class ="form-element">
             <label for="Lastname">Lastname</label>
-            <input type="text" id="Lastname" placeholder="Enter Lastname">
+            <input type="text" id="Lastname" placeholder="Enter Lastname" required>
         </div>
         <div class ="form-element">
             <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Enter Username">
+            <input type="text" min="5" id="username" placeholder="Enter Username" required>
         </div>
         <div class="form-element">
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter Password">
+            <input type="password" minlength="5" id="password" placeholder="Enter Password" required>
         </div>
         <div class="form-element">
-            <button id="reg" onclick="register('Registerbtn')">Register</button>
+            <button id="reg" onclick="addUser('Registerbtn')">Register</button>
         </div>
     </div>
 </div>

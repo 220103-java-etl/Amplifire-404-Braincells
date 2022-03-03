@@ -5,15 +5,18 @@ import com.revature.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
     private UserService userService;
+    private HttpSession session;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService,HttpSession session) {
         this.userService = userService;
+        this.session=session;
     }
 
     @GetMapping
@@ -24,8 +27,17 @@ public class UserController {
 
     @PostMapping
     public User registerUser(@RequestBody User u) {
-        return userService.createUser(u);
+        System.out.println(u.getUserName().length()>5);
+        System.out.println(u.getUserName().isBlank());
+        if (userService.findByUsername(u.getUserName()) == null &&
+                (u.getUserName().length()>5&& u.getUserName().isBlank()==false)&&
+                 u.getPassword().length()>5&& u.getPassword().isBlank()==false) {
+            return userService.createUser(u);
+        } else {
+            return null;
+        }
     }
+
 
     @GetMapping(path = "/{id}")
     public User getUser(@PathVariable("id") int id) {
@@ -34,11 +46,17 @@ public class UserController {
     }
 
     @PostMapping(path = "/login")
-    public User loginUser(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
+    public User loginUser(@RequestBody User u) {
 
-        return userService.loginUser(userName, passWord);
+        if (userService.findByUsername(u.getUserName())!=null) {
+            User m =userService.loginUser(u.getUserName(), u.getPassword());
+            session.setAttribute("user",m);
+            return m;
+
+        } else {
+            return null;
+        }
+
 
     }
-
-
 }
