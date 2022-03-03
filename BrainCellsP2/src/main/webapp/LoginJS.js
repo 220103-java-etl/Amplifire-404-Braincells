@@ -57,10 +57,10 @@ function addUser(stuff) {
     if (this.readyState == 4 && this.status == 200) {
       let newUserResp = xhr.responseText;
       let user = JSON.stringify(newUserResp);
-      console.log(user);
+      
       
 
-      if (user.length == 0){
+      if (user.length == 2){
       alert("Register Failed!");
       }
       else{

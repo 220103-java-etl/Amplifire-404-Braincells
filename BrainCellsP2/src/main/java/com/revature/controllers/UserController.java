@@ -27,9 +27,11 @@ public class UserController {
 
     @PostMapping
     public User registerUser(@RequestBody User u) {
+        System.out.println(u.getUserName().length()>5);
+        System.out.println(u.getUserName().isBlank());
         if (userService.findByUsername(u.getUserName()) == null &&
-                (u.getUserName().length()>5&& u.getUserName().isBlank()!=false)&&
-                 u.getPassword().length()>5&& u.getPassword().isBlank()!=false) {
+                (u.getUserName().length()>5&& u.getUserName().isBlank()==false)&&
+                 u.getPassword().length()>5&& u.getPassword().isBlank()==false) {
             return userService.createUser(u);
         } else {
             return null;
