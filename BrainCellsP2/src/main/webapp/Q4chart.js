@@ -38,6 +38,16 @@ function getDataForq4(url,methods,Destid){
 
         }
     }
+<<<<<<< HEAD:BrainCellsP2/src/main/webapp/Q4chart.js
+function createChart(rJson){
+    barHeight=[];
+    barLabels=[];
+    for(i in rJson){
+       // let state=rJson[i]['state']
+        barLabels.push(rJson[i]['reason'])
+        barHeight.push(rJson[i]['numClaims'])
+
+=======
 }
 function gettingCharts2(theChartId,barHeight,barLabels,xaxislabel){
     colorArray=[]
@@ -47,6 +57,7 @@ function gettingCharts2(theChartId,barHeight,barLabels,xaxislabel){
         }else{
             colorArray.push("#F26925")
         }
+>>>>>>> e5b3811628c802d31864b68e7d1491b5174bdb6c:BrainCellsP2/src/main/webapp/q4chart.js
     }
 let firstChart=document.getElementById(theChartId).getContext('2d');
 let myChart= new Chart(firstChart,{
