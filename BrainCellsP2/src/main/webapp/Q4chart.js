@@ -21,7 +21,7 @@ function getDataForq4(url,methods,Destid){
             rJson = JSON.parse(r);
                 console.log(rJson)
             for(i in rJson){
-                barLabels.push(rJson[i]['state'])
+                barLabels.push(`${rJson[i]['state']}, ${rJson[i]['reason']}`)
                 barHeights.push(rJson[i]['numClaims'])
             }
             let div=document.getElementById('divForCanv')

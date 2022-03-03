@@ -8,9 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="q3table")
-@ToString
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 
