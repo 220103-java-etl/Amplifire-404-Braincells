@@ -27,7 +27,9 @@ public class UserController {
 
     @PostMapping
     public User registerUser(@RequestBody User u) {
-        if (userService.findByUsername(u.getUserName()) == null) {
+        if (userService.findByUsername(u.getUserName()) == null &&
+                (u.getUserName().length()>5&& u.getUserName().isBlank()!=false)&&
+                 u.getPassword().length()>5&& u.getPassword().isBlank()!=false) {
             return userService.createUser(u);
         } else {
             return null;
