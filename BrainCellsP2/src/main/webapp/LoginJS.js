@@ -96,12 +96,13 @@ function LoginUser(test) {
       rJson = JSON.stringify(r);
 
       console.log(rJson);
-      login(test);
+      
      
       //if user = null give error
-      if (r == "") {
+      if (r== "") {
         alert("Login Failed!");
       } else {
+        alert("Login Successfull")
         window.location.href = "./TestingChartJS.html";
       }
 

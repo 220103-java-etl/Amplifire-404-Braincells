@@ -346,7 +346,7 @@ function getData(url,methods,Destid) {
                 plugins: {
                 title: {
                 display: true,
-                text: `Application Acceptance Percentage for age ${valueSelected} and up, ${stateValue.value},with ${falseVals+trueVals} values returned`
+                text: `Application Acceptance Percentage for age ${valueSelected} and lower, ${stateValue.value},with ${falseVals+trueVals} values returned`
                     }}
                 }
             });
