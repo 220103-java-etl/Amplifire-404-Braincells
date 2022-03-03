@@ -41,12 +41,14 @@ function createChart(rJson){
 
     
 
-    let div=document.getElementById('divForCanv')
-    div.innerHTML=""
     let div2=document.getElementById('divForCanv2')
     div2.innerHTML=""
+    let div=document.getElementById('divForCanv')
+    div.innerHTML=""
     let canvas=document.createElement('canvas')
     canvas.setAttribute('id','SecondChart')
+    canvas.setAttribute('width','800')
+    canvas.setAttribute('height','800')
     div.append(canvas);
     let SecondChart=document.getElementById('SecondChart').getContext('2d');
     
@@ -64,6 +66,8 @@ function createChart(rJson){
 }]
 },
 options:{
+maintainAspectRatio: false,
+responsive: false,
 plugins: {
 title: {
 display: true,

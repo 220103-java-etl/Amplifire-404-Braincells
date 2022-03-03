@@ -17,7 +17,11 @@ let myChart= new Chart(firstChart,{
         labels:barLabels,
         datasets:[{
             label:xaxislabel,
+
+            backgroundColor: ["#F26925", "#474C55","#474C55"],
+
             backgroundColor:colorArray,
+
             data:barHeight
 
     }]},
@@ -125,6 +129,8 @@ function getData(url,methods,Destid) {
             
             let div2=document.getElementById('divForCanv2')
             div2.innerHTML=""
+            let div=document.getElementById('divForCanv')
+            div.innerHTML=""
             let canvas2=document.createElement('canvas')
             canvas2.setAttribute('id','BarChart')
             div2.append(canvas2);
@@ -134,8 +140,7 @@ function getData(url,methods,Destid) {
             }else{
             gettingCharts('BarChart',masterAr[0],masterAr[1],'Approval Percentage per Age Demographic');
             }
-            let div=document.getElementById('divForCanv')
-            div.innerHTML=""
+            
             let canvas=document.createElement('canvas')
             canvas.setAttribute('id','SecondChart')
             div.append(canvas);
@@ -428,4 +433,24 @@ function getData(url,methods,Destid) {
      return masterAr            
     }               
         
-        
+let fun = 0;
+
+function peekaboo(formId){
+    if (fun %2 == 0){
+        document.getElementById(formId).style.display="inline-block";
+        document.getElementById("Q1btn").style.display="none";
+        /*
+        document.getElementById("register").style.display="none";
+        */
+    }
+        else{
+        document.getElementById(formId).style.display="none";
+        document.getElementById("Q1btn").style.display="inline-block";
+        /*
+        document.getElementById("register").style.display="inline-block";
+        */
+    }
+    
+        fun++;
+        console.log(fun);
+}
