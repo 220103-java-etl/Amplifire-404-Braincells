@@ -31,7 +31,7 @@ function createChart(rJson){
     barHeight=[];
     barLabels=[];
     for(i in rJson){
-        let state=rJson[i]['state']
+       // let state=rJson[i]['state']
         barLabels.push(rJson[i]['reason'])
         barHeight.push(rJson[i]['numClaims'])
 
