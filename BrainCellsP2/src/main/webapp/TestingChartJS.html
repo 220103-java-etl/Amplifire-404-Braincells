@@ -6,41 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="JSStyle.css">
 </head>
+<style>
+    .btn2 {
+    float: left;
+    border:1px solid rgb(72, 76, 86);
+    background-color: rgb(185, 185, 186);
+    color: rgb( 255,255,255);
+}
+</style>
 <body>
+    <div class="Q1Pop" id="Q1">
+        <H2>Approval Percentages for Individuals Older or Younger than the age of 50 (Per country)</H2>
+        <br>
+        <br>
 
+        <button class="btn1" id="Q1btn" onclick="peekaboo('questionOne')">Application Status By Age</button>
+    </div>
+    <br>
 
-    <button id="button2" type="button" onclick="getData('analytics/Q1','GET','SecondChart')">
-        Click to view chart for age greater than or equal to selected age
-    </button><br>
-    <button id="button2" type="button" onclick="getData2('analytics/Q1','GET','SecondChart')">
-        Click to view chart for age less than or equal to selected age
-    </button><br>
-    <label for="age"> Enter the age here : </label><br>
-    <input type="number" name="selection" id="age"><br>
+    <div class="popup" id="questionOne" style="display:none">   
+        <div id="Header">
+        <button id="x" onclick="peekaboo('questionOne')" >&times;</button>
+        <h4> Approval Percentages for individuals Older/Younger than input Age:  </h4>
+    </div>
+        <input type="number" placeholder="Enter Age" name="selection" id="age"><br>
+        <br>
+        <div class="ages" id="container">
+            <button class="btn2" id="button21" type="button" onclick="getData('analytics/Q1','GET','SecondChart')">
+                Greater Than or Equal to Age 
+            </button>
+            
+            <button class="btn2" id="button22" type="button" onclick="getData2('analytics/Q1','GET','SecondChart')">
+                Less Than or Equal to Age
+            </button>
+        </div>
+        <br>
+        <br>
+        <label for="state selection">Choose a filter for the ages</label>
+        <button class="btn3" id="button3" type="button" onclick="getStates('state selection')">
+            Click to add filter criteria states
+        </button><br>
+        <br>
+        
+        <select name="state selection" id="state selection">
+            <option value="UnitedStates">United States</option>
+        </select><br><br>
 
-    <label for="state selection">Choose a filter for the ages</label>
-    <button id="button3" type="button" onclick="getStates('state selection')">
-        Click to add filter criteria states
-    </button><br>
-    <select name="state selection" id="state selection">
-        <option value="UnitedStates">United States</option>
-    </select><br><br>
-
-    <button id="AgentButton" type="button" onclick="getDataForq3('analytics/Q3','GET','AgentBar')">
+    </div>
+    
+    <div class="AgntBtn">
+        <h2>Top Countries with the Highest Rated Agents</h2><br>
+    <button class="btn4" id="AgentButton" type="button" onclick="getDataForq3('analytics/Q3','GET','AgentBar')">
         Click to view chart for highest rated agents
     </button><br><br>
-    <button id="ClaimButton" type="button" onclick="getDataForq4('analytics/Q4','GET','ClaimBar')">
+</div>
+<br>
+<br>
+<div class="ClaimBtn">
+    <h2> Common Reasons for Approved Claims (Per Country)</h2>
+
+    <button class="btn5" id="ClaimButton" type="button" onclick="getDataForq4('analytics/Q4','GET','ClaimBar')">
         Click to view chart for most common approval reason
     </button><br><br>
-
-    <div id="divForCanv">
+</div>
+    <div class="chart1" id="divForCanv">
     
     </div>
-    <div id="divForCanv2">
+    <div class="chart2" id="divForCanv2">
 
     </div>
-    
 
     <script src="./ChartingJS.js">
    </script>
@@ -48,5 +84,8 @@
     </script>
     <script src="./q4chart.js">
     </script>
+
+<img id="Revature" src="./revature-logo-600x219.png">
+
 </body>
 </html>

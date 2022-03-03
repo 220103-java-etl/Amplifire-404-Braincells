@@ -17,11 +17,18 @@ let myChart= new Chart(firstChart,{
         labels:barLabels,
         datasets:[{
             label:xaxislabel,
+
+            backgroundColor: ["#F26925", "#474C55","#474C55"],
+
             backgroundColor:colorArray,
+
             data:barHeight
 
     }]},
-    options:{},
+    options:{
+        maintainAspectRatio: false,
+        responsive: false
+    },
 });
 }
 function getData(url,methods,Destid) {
@@ -129,6 +136,8 @@ function getData(url,methods,Destid) {
             div.innerHTML=""
             let canvas2=document.createElement('canvas')
             canvas2.setAttribute('id','BarChart')
+            canvas2.setAttribute('width','800')
+            canvas2.setAttribute('height','400')
             div2.append(canvas2);
             masterAr=creatingBarsForChart(allAgeAccepatance,allAgeDenial);
             if(stateValue.value=='UnitedStates'){
@@ -139,6 +148,8 @@ function getData(url,methods,Destid) {
             
             let canvas=document.createElement('canvas')
             canvas.setAttribute('id','SecondChart')
+            canvas.setAttribute('width','400')
+            canvas.setAttribute('height','400')
             div.append(canvas);
             let SecondChart=document.getElementById('SecondChart').getContext('2d');
             
@@ -156,6 +167,8 @@ function getData(url,methods,Destid) {
         }]
     },
     options:{
+        maintainAspectRatio: false,
+        responsive: false,
         plugins: {
         title: {
         display: true,
@@ -311,6 +324,8 @@ function getData(url,methods,Destid) {
                     div2.innerHTML=""
                     let canvas2=document.createElement('canvas')
                     canvas2.setAttribute('id','BarChart')
+                    canvas2.setAttribute('width','800')
+                    canvas2.setAttribute('height','400')
                     div2.append(canvas2);
                     masterAr=creatingBarsForChart(allAgeAccepatance,allAgeDenial);
                     if(stateValue.value=='UnitedStates'){
@@ -322,6 +337,8 @@ function getData(url,methods,Destid) {
                     div.innerHTML=""
                     let canvas=document.createElement('canvas')
                     canvas.setAttribute('id','SecondChart')
+                    canvas.setAttribute('width','400')
+                    canvas.setAttribute('height','400')
                     div.append(canvas);
                     let SecondChart=document.getElementById('SecondChart').getContext('2d');
                     
@@ -339,6 +356,8 @@ function getData(url,methods,Destid) {
                 }]
             },
             options:{
+                maintainAspectRatio: false,
+                responsive: false,
                 plugins: {
                 title: {
                 display: true,
@@ -429,4 +448,24 @@ function getData(url,methods,Destid) {
      return masterAr            
     }               
         
-        
+let fun = 0;
+
+function peekaboo(formId){
+    if (fun %2 == 0){
+        document.getElementById(formId).style.display="inline-block";
+        document.getElementById("Q1btn").style.display="none";
+        /*
+        document.getElementById("register").style.display="none";
+        */
+    }
+        else{
+        document.getElementById(formId).style.display="none";
+        document.getElementById("Q1btn").style.display="inline-block";
+        /*
+        document.getElementById("register").style.display="inline-block";
+        */
+    }
+    
+        fun++;
+        console.log(fun);
+}
